@@ -48,6 +48,27 @@ namespace Glob.Infrastructure.Services
             }
         }
 
+        public byte[] SignData(string dataToSign, string key)
+        {
+            using (var RSAalg = new RSACryptoServiceProvider())
+            {
+                var dataBytes = Encoding.UTF8.GetBytes(dataToSign);
+                RSAalg.FromXmlString(key);
+
+                return RSAalg.SignData(dataBytes, SHA256.Create());
+            }
+        }
+        public bool VerifySignature(string data, byte[] signature, string key)
+        {
+            using (var RSAalg = new RSACryptoServiceProvider())
+            {
+                var dataToVerify = Encoding.UTF8.GetBytes(data);
+                RSAalg.FromXmlString(key);
+
+                return RSAalg.VerifyData(dataToVerify, SHA256.Create(), signature);
+            }
+        }
+
         public RSAKeyPair GeneratePubPrivKeys()
         {
             using (var rsa = new RSACryptoServiceProvider(2048))

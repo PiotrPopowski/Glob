@@ -11,6 +11,8 @@ namespace Glob.Server.Infrastructure.Repositories
     {
         Task<User> CreateAsync(User user);
         Task<User> GetAsync(string login);
+        Task AddAwaitedUserAsync(AwaitedUser awaitedUser, User user, User contact);
+        Task RemoveAwaitedUserAsync(params AwaitedUser[] users);
         Task UpdateAsync(User user);
         Task DeleteAsync(User user);
     }

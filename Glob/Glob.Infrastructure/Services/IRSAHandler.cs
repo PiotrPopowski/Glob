@@ -11,6 +11,8 @@ namespace Glob.Infrastructure.Services
         RSAKeyPair GeneratePubPrivKeys();
         string Encrypt(string data, string key);
         string Decrypt(string data, string key);
+        byte[] SignData(string dataToSign, string key);
+        bool VerifySignature(string data, byte[] signature, string key);
 
         public class RSAKeyPair
         {

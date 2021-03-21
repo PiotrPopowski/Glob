@@ -8,15 +8,21 @@ namespace Glob.Server.Core.Domain
 {
     public class AwaitedUser
     {
-        public User User { get; protected set; }
+        public Guid Id { get; protected set; }
+        public string Contact { get; protected set; }
         public string SymmetricKey { get; protected set; }
         public string IV { get; protected set; }
 
-        public AwaitedUser(User user, string key, string iv)
+        public AwaitedUser(string contact, string key, string iv)
         {
-            User = user;
+            Id = Guid.NewGuid();
+            Contact = contact;
             SymmetricKey = key;
             IV = iv;
+        }
+
+        protected AwaitedUser()
+        {
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Glob.Server.Infrastructure.Framework
                     .ForMember(dst => dst.Sender, src => src.MapFrom(x => x.Sender.Login))
                     .ForMember(dst => dst.Receiver, src => src.MapFrom(x => x.Receiver.Login));
                 cfg.CreateMap<AwaitedUser, AwaitedContactDto>()
-                    .ForMember(dst => dst.ContactName, src => src.MapFrom(x => x.User.Login));
+                    .ForMember(dst => dst.ContactName, src => src.MapFrom(x => x.Contact));
             });
 
             return config.CreateMapper();

@@ -65,9 +65,8 @@ namespace Glob.Server.Infrastructure.Services
                 throw new System.Exception("User not found.");
             }
             var chat = await _chatRepository.GetSingleChat(user.Id, contact.Id);
-            var msg = new Message(user, contact, message);
-            chat.Messages.Add(msg);
-            //await _chatRepository.Update(chat);
+            var msg = new Message(user, contact, message, chat);
+            await _chatRepository.AddMessage(msg, chat);
         }
 
         public async Task UpdateChat(Conversation chat)

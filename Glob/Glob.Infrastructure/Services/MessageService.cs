@@ -41,8 +41,9 @@ namespace Glob.Infrastructure.Services
                     {
                         return new CustomHttpHandler(new AuthenticationHeaderValue("Bearer", _userSettings.User.Token), innerHandler);
                     };
-                }).Build();
+                }).WithAutomaticReconnect().Build();
             _signalR.On<string, string>("ReceiveMessage", ReceiveMessage);
+            _signalR.Reconnected += async (connectionId) => { await _signalR.InvokeAsync("Reconnect"); };
 
             await _signalR.StartAsync();
             await _signalR.InvokeAsync("SetName", _userSettings.User.Login);
@@ -73,7 +74,8 @@ namespace Glob.Infrastructure.Services
 
             var key = _userSettings.Keys[toUser.Login];
             var encryptedMessage = _cryptographyProvider.AES.Encrypt(message, key.Key, key.IV);
-            await _signalR.InvokeAsync("SendMessage", toUser.Login, encryptedMessage);
+            var signature = _cryptographyProvider.RSA.SignData(encryptedMessage, _userSettings.User.PrivateKey);
+            await _signalR.InvokeAsync("SendMessage", toUser.Login, new SignedData(encryptedMessage, signature));
         }
 
         private async void ReceiveMessage(string contact, string message)

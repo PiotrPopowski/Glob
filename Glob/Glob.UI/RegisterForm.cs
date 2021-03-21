@@ -31,5 +31,10 @@ namespace Glob.UI
             await _userService.Register(loginInput.Text, firstNameInput.Text, lastNameInput.Text, passwordInput.Text);
             goToForm(typeof(LoginForm));
         }
+
+        private void passwordInput_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

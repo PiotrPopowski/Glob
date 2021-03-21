@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Glob.Server.Core.Contexts;
 using Glob.Server.Infrastructure.Framework;
 using Glob.Server.Infrastructure.Hubs;
 using Glob.Server.Infrastructure.Repositories;
@@ -20,6 +21,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.EntityFrameworkCore;
 
 namespace Glob.Server.Api
 {
@@ -35,6 +38,8 @@ namespace Glob.Server.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<GlobContext>(opt => opt.UseInMemoryDatabase("GlobContext"));
+
             var jwtOptions = new JwtSettings()
             {
                 Issuer = "Glob",

@@ -1,4 +1,5 @@
-﻿using Glob.Server.Infrastructure.Services;
+﻿using Glob.Server.Core.Domain;
+using Glob.Server.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using System;
@@ -13,23 +14,42 @@ namespace Glob.Server.Infrastructure.Hubs
     {
         private static Dictionary<string, string> users = new Dictionary<string, string>();
         private readonly IChatService _chatService;
+        private readonly IUserService _userService;
 
-        public ChatHub(IChatService chatService)
+        public ChatHub(IChatService chatService, IUserService userService)
         {
             _chatService = chatService;
+            _userService = userService;
         }
 
         [Authorize]
-        public async Task<Task> SendMessage(string user, string message)
+        public async Task<Task> SendMessage(string user, SignedData message)
         {
-            await _chatService.Send(this.Context.User.Identity.Name, user, message);
+            var sender = await _userService.GetAsync(Context.User.Identity.Name);
+            if (Encrypter.VerifySignedData(message.Data, message.Signature, sender.PublicKey) == false)
+            {
+                return Task.CompletedTask;
+            }
+            await _chatService.Send(this.Context.User.Identity.Name, user, message.Data);
             var connectionId = users.LastOrDefault(x => x.Value == user).Key;
-            return Clients.Clients(connectionId).SendAsync("ReceiveMessage", users[Context.ConnectionId], message);
+            return Clients.Clients(connectionId).SendAsync("ReceiveMessage", users[Context.ConnectionId], message.Data);
         }
 
         [Authorize]
         public void SetName(string name)
         {
+            users[Context.ConnectionId] = this.Context.User.Identity.Name;
+        }
+
+        [Authorize]
+        public void Reconnect()
+        {
+            var oldUser = users.FirstOrDefault(x => x.Value == this.Context.User.Identity.Name).Key;
+            if(oldUser == null)
+            {
+                return;
+            }
+            users.Remove(oldUser);
             users[Context.ConnectionId] = this.Context.User.Identity.Name;
         }
 

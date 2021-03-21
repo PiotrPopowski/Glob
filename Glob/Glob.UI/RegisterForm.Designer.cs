@@ -34,7 +34,6 @@ namespace Glob.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.acceptBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -70,14 +69,14 @@ namespace Glob.UI
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.cancelBtn);
             this.panel2.Controls.Add(this.acceptBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 417);
+            this.panel2.Location = new System.Drawing.Point(0, 567);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 133);
+            this.panel2.Size = new System.Drawing.Size(1000, 133);
             this.panel2.TabIndex = 2;
             // 
             // cancelBtn
@@ -85,7 +84,7 @@ namespace Glob.UI
             this.cancelBtn.FlatAppearance.BorderSize = 0;
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBtn.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtn.Image")));
-            this.cancelBtn.Location = new System.Drawing.Point(407, 9);
+            this.cancelBtn.Location = new System.Drawing.Point(629, 18);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(94, 82);
             this.cancelBtn.TabIndex = 1;
@@ -96,75 +95,64 @@ namespace Glob.UI
             this.acceptBtn.FlatAppearance.BorderSize = 0;
             this.acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acceptBtn.Image = ((System.Drawing.Image)(resources.GetObject("acceptBtn.Image")));
-            this.acceptBtn.Location = new System.Drawing.Point(259, 9);
+            this.acceptBtn.Location = new System.Drawing.Point(323, 18);
             this.acceptBtn.Name = "acceptBtn";
             this.acceptBtn.Size = new System.Drawing.Size(91, 82);
             this.acceptBtn.TabIndex = 0;
             this.acceptBtn.UseVisualStyleBackColor = true;
             this.acceptBtn.Click += new System.EventHandler(this.acceptBtn_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 27);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(3);
-            this.panel3.Size = new System.Drawing.Size(90, 390);
-            this.panel3.TabIndex = 3;
-            // 
             // textBox5
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(93, 257);
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Location = new System.Drawing.Point(293, 250);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(84, 23);
+            this.textBox5.Size = new System.Drawing.Size(84, 31);
             this.textBox5.TabIndex = 3;
             this.textBox5.Text = "Hasło";
             // 
             // textBox4
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(93, 207);
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.Location = new System.Drawing.Point(293, 200);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(84, 23);
+            this.textBox4.Size = new System.Drawing.Size(84, 31);
             this.textBox4.TabIndex = 2;
             this.textBox4.Text = "Nazwisko";
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(93, 157);
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(293, 150);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(84, 23);
+            this.textBox3.Size = new System.Drawing.Size(84, 31);
             this.textBox3.TabIndex = 1;
             this.textBox3.Text = "Imię";
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(93, 107);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(293, 100);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(84, 23);
+            this.textBox2.Size = new System.Drawing.Size(84, 31);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "Login";
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.repeatPasswordInput);
             this.panel4.Controls.Add(this.textBox1);
@@ -177,17 +165,17 @@ namespace Glob.UI
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.loginInput);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(90, 27);
+            this.panel4.Location = new System.Drawing.Point(0, 27);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(610, 390);
+            this.panel4.Size = new System.Drawing.Size(1000, 540);
             this.panel4.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Heading", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(193, 3);
+            this.label3.Location = new System.Drawing.Point(401, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 58);
             this.label3.TabIndex = 7;
@@ -195,60 +183,66 @@ namespace Glob.UI
             // 
             // repeatPasswordInput
             // 
-            this.repeatPasswordInput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.repeatPasswordInput.Location = new System.Drawing.Point(207, 307);
+            this.repeatPasswordInput.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.repeatPasswordInput.Location = new System.Drawing.Point(447, 300);
             this.repeatPasswordInput.Name = "repeatPasswordInput";
             this.repeatPasswordInput.PasswordChar = '•';
-            this.repeatPasswordInput.Size = new System.Drawing.Size(204, 27);
+            this.repeatPasswordInput.Size = new System.Drawing.Size(204, 34);
             this.repeatPasswordInput.TabIndex = 6;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(98)))), ((int)(((byte)(181)))));
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(93, 307);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(293, 300);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(114, 23);
+            this.textBox1.Size = new System.Drawing.Size(148, 31);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Powtórz hasło";
             // 
             // passwordInput
             // 
-            this.passwordInput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordInput.Location = new System.Drawing.Point(207, 257);
+            this.passwordInput.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordInput.Location = new System.Drawing.Point(447, 250);
             this.passwordInput.Name = "passwordInput";
             this.passwordInput.PasswordChar = '•';
-            this.passwordInput.Size = new System.Drawing.Size(204, 27);
+            this.passwordInput.Size = new System.Drawing.Size(204, 34);
             this.passwordInput.TabIndex = 4;
+            this.passwordInput.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.passwordInput_MaskInputRejected);
             // 
             // lastNameInput
             // 
             this.lastNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastNameInput.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastNameInput.Location = new System.Drawing.Point(207, 207);
+            this.lastNameInput.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lastNameInput.Location = new System.Drawing.Point(447, 200);
+            this.lastNameInput.MaxLength = 48;
             this.lastNameInput.Name = "lastNameInput";
-            this.lastNameInput.Size = new System.Drawing.Size(204, 25);
+            this.lastNameInput.PlaceholderText = "Opcjonalnie";
+            this.lastNameInput.Size = new System.Drawing.Size(204, 36);
             this.lastNameInput.TabIndex = 2;
             // 
             // firstNameInput
             // 
             this.firstNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstNameInput.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.firstNameInput.Location = new System.Drawing.Point(207, 157);
+            this.firstNameInput.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstNameInput.Location = new System.Drawing.Point(447, 150);
+            this.firstNameInput.MaxLength = 48;
             this.firstNameInput.Name = "firstNameInput";
-            this.firstNameInput.Size = new System.Drawing.Size(204, 25);
+            this.firstNameInput.PlaceholderText = "Opcjonalnie";
+            this.firstNameInput.Size = new System.Drawing.Size(204, 36);
             this.firstNameInput.TabIndex = 1;
             // 
             // loginInput
             // 
-            this.loginInput.BackColor = System.Drawing.Color.Gray;
+            this.loginInput.BackColor = System.Drawing.Color.White;
             this.loginInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.loginInput.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.loginInput.Location = new System.Drawing.Point(207, 107);
+            this.loginInput.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.loginInput.Location = new System.Drawing.Point(447, 100);
+            this.loginInput.MaxLength = 48;
             this.loginInput.Name = "loginInput";
-            this.loginInput.Size = new System.Drawing.Size(204, 25);
+            this.loginInput.Size = new System.Drawing.Size(204, 36);
             this.loginInput.TabIndex = 0;
             // 
             // topPanel
@@ -288,15 +282,13 @@ namespace Glob.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 550);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "RegisterForm";
             this.Controls.SetChildIndex(this.panel2, 0);
-            this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -309,7 +301,6 @@ namespace Glob.UI
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;

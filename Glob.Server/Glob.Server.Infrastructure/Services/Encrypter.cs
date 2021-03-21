@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Glob.Server.Infrastructure.Services
 {
@@ -37,6 +38,16 @@ namespace Glob.Server.Infrastructure.Services
             var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesIterationsCount);
 
             return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
+        }
+
+        public static bool VerifySignedData(string dataToVerify, byte[] signature, string key)
+        {
+            using (var RSAalg = new RSACryptoServiceProvider())
+            {
+                var dataBytes = Encoding.UTF8.GetBytes(dataToVerify);
+                RSAalg.FromXmlString(key);
+                return RSAalg.VerifyData(dataBytes, SHA256.Create(), signature);
+            }
         }
 
         private static byte[] GetBytes(string value)

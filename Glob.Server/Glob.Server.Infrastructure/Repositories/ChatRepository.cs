@@ -1,4 +1,6 @@
-﻿using Glob.Server.Core.Domain;
+﻿using Glob.Server.Core.Contexts;
+using Glob.Server.Core.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,34 +12,46 @@ namespace Glob.Server.Infrastructure.Repositories
     public class ChatRepository : IChatRepository
     {
         private static List<Conversation> conversations = new List<Conversation>();
+        private readonly GlobContext _context;
 
-        public Task Add(Conversation chat)
+        public ChatRepository(GlobContext globContext)
         {
-            conversations.Add(chat);
-            return Task.CompletedTask;
+            _context = globContext;
+        }
+
+        public async Task Add(Conversation chat)
+        {
+            _context.Conversations.Add(chat);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddMessage(Message message, Conversation conversation)
+        {
+            _context.Messages.Add(message);
+            conversation.Messages.Add(message);
+            _context.Conversations.Update(conversation);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Conversation>> GetAllChats(Guid user)
         {
-            var x = await Task.FromResult(conversations.FindAll(x => (x.Participant1.Id == user) || (x.Participant2.Id == user)));
+            var x = await _context.Conversations.Include(p => p.Messages).Where(x => (x.Participant1.Id == user) || (x.Participant2.Id == user)).ToListAsync();
             return x;
         }
 
         public async Task<Conversation> GetSingleChat(Guid user1, Guid user2)
         {
-            var x = await Task.FromResult(
-                conversations.SingleOrDefault(x => 
-                    (x.Participant1.Id == user1 && x.Participant2.Id == user2)
-                    || (x.Participant1.Id == user2 && x.Participant2.Id == user1)
-                    ));
+            var x = await _context.Conversations.Include(p => p.Messages).SingleOrDefaultAsync(
+                    x => (x.Participant1.Id == user1 && x.Participant2.Id == user2)
+                        || (x.Participant1.Id == user2 && x.Participant2.Id == user1)
+                    );
             return x;
         }
 
         public async Task Update(Conversation chat)
         {
-            var old = await Task.FromResult(conversations.SingleOrDefault(x => x.Id == chat.Id));
-            old.Messages.Clear();
-            old.Messages.AddRange(chat.Messages);
+            _context.Conversations.Update(chat);
+            await _context.SaveChangesAsync();
         }
     }
 }

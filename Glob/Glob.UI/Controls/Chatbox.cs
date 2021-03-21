@@ -130,5 +130,14 @@ namespace Glob.UI.Controls
                 Message = msg;
             }
         }
+
+        private void messageBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Return)
+            {
+                this.messageBox.Text = String.Join("",this.messageBox.Text.Split('\n'));
+                sendBtn_Click(sender, e);
+            }
+        }
     }
 }

@@ -79,10 +79,8 @@ namespace Glob.Server.Infrastructure.Services
             user.Contacts.Add(contact);
             await _userRepository.UpdateAsync(user);
 
-            var awaitedUser = new AwaitedUser(user, key, iv);
-            contact.AwaitedContacts.Add(awaitedUser);
-            contact.Contacts.Add(user);
-            await _userRepository.UpdateAsync(contact);
+            var awaitedUser = new AwaitedUser(user.Login, key, iv);
+            await _userRepository.AddAwaitedUserAsync(awaitedUser, user, contact);
 
             var chat = new Conversation(user, contact);
             await _chatRepository.Add(chat);
@@ -93,12 +91,17 @@ namespace Glob.Server.Infrastructure.Services
         public async Task<List<AwaitedContactDto>> GetNewContacts(string userLogin)
         {
             var user = await _userRepository.GetAsync(userLogin);
-            var awaitedUsers = user.AwaitedContacts.ToList();
-
-            user.AwaitedContacts.Clear();
-            await _userRepository.UpdateAsync(user);
-            
-            return _mapper.Map<List<AwaitedContactDto>>(awaitedUsers);
+            var awaitedUsers = user.AwaitedContacts.ToArray();
+            try
+            {
+                return _mapper.Map<List<AwaitedContactDto>>(awaitedUsers);
+            }
+            finally
+            {
+                user.AwaitedContacts.Clear();
+                await _userRepository.UpdateAsync(user);
+                await _userRepository.RemoveAwaitedUserAsync(awaitedUsers);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Glob.Server.Infrastructure.Repositories
         Task<List<Conversation>> GetAllChats(Guid user);
         Task<Conversation> GetSingleChat(Guid user1, Guid user2);
         Task Add(Conversation chat);
+        Task AddMessage(Message message, Conversation conversation);
         Task Update(Conversation chat);
     }
 }

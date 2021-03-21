@@ -68,6 +68,7 @@ namespace Glob.UI.Controls
             this.messageBox.Size = new System.Drawing.Size(648, 55);
             this.messageBox.TabIndex = 0;
             this.messageBox.Text = "";
+            this.messageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageBox_KeyDown);
             // 
             // topPanel
             // 

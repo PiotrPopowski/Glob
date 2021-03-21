@@ -36,7 +36,6 @@ namespace Glob.UI
             this.loginInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,27 +92,19 @@ namespace Glob.UI
             this.passwordInput.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.passwordInput.Location = new System.Drawing.Point(414, 247);
             this.passwordInput.Name = "passwordInput";
+            this.passwordInput.PasswordChar = '•';
             this.passwordInput.Size = new System.Drawing.Size(212, 39);
             this.passwordInput.TabIndex = 6;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(383, 337);
+            this.button1.Location = new System.Drawing.Point(449, 324);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(144, 42);
             this.button1.TabIndex = 7;
             this.button1.Text = "Ok";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(564, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Zarejestruj";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -121,7 +112,6 @@ namespace Glob.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.loginInput);
@@ -136,7 +126,6 @@ namespace Glob.UI
             this.Controls.SetChildIndex(this.loginInput, 0);
             this.Controls.SetChildIndex(this.passwordInput, 0);
             this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -153,7 +142,6 @@ namespace Glob.UI
         private System.Windows.Forms.TextBox loginInput;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox passwordInput;
     }
 }

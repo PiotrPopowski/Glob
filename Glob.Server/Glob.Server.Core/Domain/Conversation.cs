@@ -12,7 +12,7 @@ namespace Glob.Server.Core.Domain
         public User Participant1 { get; protected set; }
         public User Participant2 { get; protected set; }
 
-        public List<Message> Messages { get; protected set; } = new List<Message>();
+        public HashSet<Message> Messages { get; protected set; } = new HashSet<Message>();
 
         public Conversation(User p1, User p2)
         {
